@@ -1,160 +1,292 @@
-import "./App.css";
-
-const projects = [
-  {
-    title: "CareerCopilot AI — Multi-Agent Job Assistant",
-    stack: ["Python", "OpenAI API", "FAISS", "FastAPI", "n8n", "NLP"],
-    description:
-      "Built an AI-powered job assistant that classifies job emails, extracts role details, detects duplicates, matches resumes with job descriptions, and supports personalized outreach workflows.",
-    github: "https://github.com/hrutuja-m/career_copilot_ai",
-  },
-  {
-    title: "Twitter US Airline Sentiment Analysis",
-    stack: ["AWS S3", "AWS Glue", "PySpark", "Athena", "QuickSight", "SQL"],
-    description:
-      "Built a serverless big data pipeline to analyze 4,000+ airline tweets, clean unstructured text, optimize query performance using Parquet, and visualize sentiment trends in QuickSight.",
-    github: "https://github.com/hrutuja-m",
-  },
-  {
-    title: "Smart Space Occupancy Monitoring",
-    stack: ["Python", "YOLOv8", "OpenCV", "Firestore", "Computer Vision"],
-    description:
-      "Developed a computer vision system to detect and count room occupancy for HVAC and lighting automation, supporting energy-efficient smart building operations.",
-    github: "https://github.com/hrutuja-m",
-  },
-  {
-    title: "LLM Voice-Based RAG Chatbot",
-    stack: ["OpenAI Whisper", "Pinecone", "RAG", "Python", "TTS"],
-    description:
-      "Created a voice-enabled chatbot that transcribes questions, retrieves relevant context from Pinecone, generates grounded answers, and responds using text-to-speech.",
-    github: "https://github.com/hrutuja-m",
-  },
-  {
-    title: "Network Anomaly Detection",
-    stack: ["Python", "Autoencoder", "One-Class SVM", "Scapy", "Wireshark"],
-    description:
-      "Built machine learning models using benign network traffic baselines to detect abnormal behavior in live packet captures.",
-    github: "https://github.com/hrutuja-m",
-  },
-  {
-    title: "Self-Driving Car Perception Model",
-    stack: ["Python", "YOLOv3", "MATLAB", "Deep Learning", "Computer Vision"],
-    description:
-      "Developed an autonomous vehicle perception prototype for real-time object detection and pedestrian intent prediction using deep learning and simulation-based testing.",
-    github: "https://github.com/hrutuja-m",
-  },
-];
-
-const skills = [
-  "Python",
-  "SQL",
-  "PySpark",
-  "AWS S3",
-  "AWS Glue",
-  "Athena",
-  "QuickSight",
-  "Machine Learning",
-  "Deep Learning",
-  "Computer Vision",
-  "OpenCV",
-  "YOLO",
-  "LLMs",
-  "RAG",
-  "Pinecone",
-  "FastAPI",
-  "Git",
-  "Streamlit",
-];
-
-function App() {
-  return (
-    <main className="app">
-      <div className="scroll-bg">
-        <div className="blob blob-one"></div>
-        <div className="blob blob-two"></div>
-        <div className="blob blob-three"></div>
-      </div>
-
-      <nav className="nav">
-        <a href="#home" className="logo">RM.</a>
-        <div>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
-
-      <section id="home" className="hero">
-        <p className="eyebrow">Data Science Graduate Student @ UMass Dartmouth</p>
-        <h1>
-          Hi, I’m <span>Rutuja More.</span>
-        </h1>
-        <h2>AI/ML Engineer · Data Builder · Automation Thinker</h2>
-        <p className="hero-text">
-          I build AI, data, and automation projects using Python, AWS, machine learning,
-          computer vision, and LLM workflows — with a focus on practical systems that solve real problems.
-        </p>
-
-        <div className="hero-actions">
-          <a href="#projects" className="btn primary">View Projects</a>
-          <a href="https://github.com/hrutuja-m" target="_blank" rel="noreferrer" className="btn secondary">
-            GitHub
-          </a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="btn secondary">
-            LinkedIn
-          </a>
-        </div>
-      </section>
-
-      <section id="projects" className="section">
-        <div className="section-heading">
-          <p className="eyebrow">Selected Work</p>
-          <h2>Featured Projects</h2>
-        </div>
-
-        <div className="project-grid">
-          {projects.map((project) => (
-            <article className="project-card" key={project.title}>
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <div className="tags">
-                {project.stack.map((item) => (
-                  <span key={item}>{item}</span>
-                ))}
-              </div>
-              <a href={project.github} target="_blank" rel="noreferrer" className="project-link">
-                View Project →
-              </a>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="skills" className="section">
-        <div className="section-heading">
-          <p className="eyebrow">Technical Stack</p>
-          <h2>Skills</h2>
-        </div>
-
-        <div className="skills">
-          {skills.map((skill) => (
-            <span key={skill}>{skill}</span>
-          ))}
-        </div>
-      </section>
-
-      <section id="contact" className="section contact">
-        <p className="eyebrow">Let’s Connect</p>
-        <h2>Open to AI, Data Science, Data Engineering, and ML internship roles.</h2>
-        <div className="hero-actions">
-          <a href="mailto:your-email-here@example.com" className="btn primary">Email Me</a>
-          <a href="https://github.com/hrutuja-m" target="_blank" rel="noreferrer" className="btn secondary">
-            GitHub
-          </a>
-        </div>
-      </section>
-    </main>
-  );
+:root {
+  --purple: #8677fc;
+  --light: #efedff;
+  --lavender: #b3abf1;
+  --dark: #212121;
+  --white: #ffffff;
+  --muted: #6b6878;
+  --card: rgba(255, 255, 255, 0.68);
+  --border: rgba(134, 119, 252, 0.18);
 }
 
-export default App;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--light);
+  color: var(--dark);
+}
+
+.app {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(134, 119, 252, 0.28), transparent 32%),
+    radial-gradient(circle at 85% 10%, rgba(179, 171, 241, 0.35), transparent 30%),
+    linear-gradient(135deg, #ffffff 0%, #efedff 55%, #ffffff 100%);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(28px);
+  opacity: 0.55;
+  animation: float 12s ease-in-out infinite alternate;
+}
+
+.blob-one {
+  width: 340px;
+  height: 340px;
+  background: rgba(134, 119, 252, 0.45);
+  top: 8%;
+  left: -6%;
+}
+
+.blob-two {
+  width: 420px;
+  height: 420px;
+  background: rgba(179, 171, 241, 0.42);
+  top: 48%;
+  right: -8%;
+  animation-delay: 2s;
+}
+
+.blob-three {
+  width: 280px;
+  height: 280px;
+  background: rgba(239, 237, 255, 0.9);
+  bottom: 5%;
+  left: 32%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(45px, -55px, 0) scale(1.12);
+  }
+}
+
+.nav {
+  width: min(1120px, 92%);
+  margin: 0 auto;
+  padding: 28px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.nav div {
+  display: flex;
+  gap: 26px;
+}
+
+.nav a {
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav a:hover {
+  color: var(--purple);
+}
+
+.hero {
+  width: min(1120px, 92%);
+  margin: 0 auto;
+  padding: 100px 0 120px;
+}
+
+.eyebrow {
+  color: var(--purple);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 6.8rem);
+  line-height: 0.95;
+  margin: 12px 0;
+  letter-spacing: -0.08em;
+}
+
+.hero h1 span {
+  color: var(--purple);
+}
+
+.hero h2 {
+  font-size: clamp(1.35rem, 3vw, 2.4rem);
+  margin: 0 0 22px;
+  color: var(--dark);
+}
+
+.hero-text {
+  max-width: 760px;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.btn {
+  padding: 13px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  transition: 0.2s ease;
+}
+
+.primary {
+  background: var(--purple);
+  color: white;
+  box-shadow: 0 18px 34px rgba(134, 119, 252, 0.32);
+}
+
+.secondary {
+  background: rgba(255, 255, 255, 0.68);
+  color: var(--dark);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.section {
+  width: min(1120px, 92%);
+  margin: 0 auto;
+  padding: 76px 0;
+}
+
+.section-heading h2,
+.contact h2 {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  margin: 8px 0 28px;
+  letter-spacing: -0.04em;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 28px;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 60px rgba(33, 33, 33, 0.08);
+  transition: 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(134, 119, 252, 0.45);
+}
+
+.project-card h3 {
+  font-size: 1.45rem;
+  margin: 0 0 14px;
+}
+
+.project-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0;
+}
+
+.tags span,
+.skills span {
+  background: rgba(134, 119, 252, 0.12);
+  color: var(--dark);
+  border: 1px solid rgba(134, 119, 252, 0.18);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.project-link {
+  color: var(--purple);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.contact {
+  margin-bottom: 80px;
+  background: rgba(255, 255, 255, 0.52);
+  border: 1px solid var(--border);
+  border-radius: 36px;
+  padding: 46px;
+  backdrop-filter: blur(18px);
+}
+
+@media (max-width: 760px) {
+  .nav {
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .nav div {
+    gap: 14px;
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    padding: 70px 0 80px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact {
+    padding: 30px;
+  }
+}
